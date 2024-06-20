@@ -1,0 +1,34 @@
+---
+import ProjectCard from './ProjectCard.astro'
+
+const PROJECTS = [
+    {
+        title: "Rocket",
+        description: "Una aplicación para la gestión de proyectos y tareas.",
+        link: "https://approcket.vercel.app/",
+        githubLink: "https://github.com/dgarciacasam/rocket",
+        stack: ["React", "Typescript", "Tailwind"]
+        
+        
+    },{
+        title: "RocketAPI",
+        description: "API REST con implementación de tareas Cron y JWT.",
+        link: "",
+        githubLink: "https://github.com/dgarciacasam/rocketAPI",
+        stack: ["Java (Spring Boot)", "MariaDB"]
+    }
+]
+---
+
+
+<section class="mt-10">
+    <h2 class="text-xl font-bold">PROYECTOS</h2>
+    <div class="grid md:grid-cols-2 gap-4 mt-2">
+        {
+            PROJECTS.map(project => (
+                <ProjectCard {...project} />
+            ))
+        }
+    </div>
+    
+</section>

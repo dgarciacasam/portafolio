@@ -1,0 +1,33 @@
+---
+import PostCard from './PostCard.astro'
+
+const POSTS = [
+    {
+        title: "Rocket",
+        description: "Una aplicación de gestión de proyectos y tareas",
+        link: "https://approcket.vercel.app/",
+        tag: "Tutorial",
+        date: "7 de mayo de 2024"
+        
+        
+    },{
+        title: "Rocket",
+        description: "Una aplicación de gestión de proyectos y tareas",
+        link: "https://approcket.vercel.app/",
+        tag: "Tutorial",
+        date: "7 de mayo de 2024"
+    }
+]
+---
+
+<section class="mt-10">
+    <h2 class="text-xl font-bold">POSTS</h2>
+    <div class="grid grid-cols-1 mt-2 space-y-4">
+       {
+        POSTS.map(post => (
+            <PostCard {...post}/> 
+        ))
+       }
+    </div>
+    
+</section>

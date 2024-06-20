@@ -1,0 +1,28 @@
+---
+import ExperienceCard from './ExperienceCard.astro'
+
+const EXPERIENCE = [
+    {
+        date: "2023 - 2024",
+        role: "Desarrollador fullstack",
+        title: "NTT Lapso",
+        description: "Desarrollando una aplicación para acelerar los procesos internos de la empresa automatizando la carga de datos en diferentes aplicaciones como OneRP o herramientas de Microsoft 365 mediante hojas de cálculo.",
+
+    }
+]
+---
+
+<section class="mt-10">
+    <h2 class="text-xl font-bold">EXPERIENCIA</h2>
+<ol class="relative border-s border-gray-200 dark:border-gray-700 mt-2">                  
+    {
+        EXPERIENCE.map(experience => (
+            <li class="mb-10 ms-4">
+                <ExperienceCard {...experience}/>
+            </li>
+        ))
+    }
+    
+    
+</ol>
+</section>
