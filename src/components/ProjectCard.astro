@@ -1,6 +1,6 @@
 ---
 import TechPill from './TechPill.astro'
-import AstroIcon from './icons/AstroIcon.astro'
+import PlanetIcon from './icons/PlanetIcon.astro'
 import RocketIcon from './icons/RocketIcon.astro'
     interface Props{
         title: string
@@ -19,7 +19,7 @@ import RocketIcon from './icons/RocketIcon.astro'
     <div class="flex justify-between items-center">
     <h3 class={(link !== "") ? 'flex space-x-1 hover:underline hover:decoration-dashed hover:decoration-white/50 hover:underline-offset-4' : 'flex space-x-1' }>   
         { icon === "RocketIcon" && <RocketIcon/> }
-        { icon === "AstroIcon" && <AstroIcon />}
+        { icon === "PlanetIcon" && <PlanetIcon />}
         <a href={link} target="_blank" class={(link !== "")? `font-bold` : `font-bold pointer-events-none` }>{title}</a>          
     </h3>
     <a href={githubLink} target="_blank" class="p-1 rounded text-white/70 hover:text-white hover:bg-white/10 transition">
