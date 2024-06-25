@@ -2,16 +2,9 @@
 import TechPill from './TechPill.astro'
 import PlanetIcon from './icons/PlanetIcon.astro'
 import RocketIcon from './icons/RocketIcon.astro'
-    interface Props{
-        title: string
-        description: string
-        link: string
-        githubLink: string
-        stack: string[]
-        icon: string
-    }
+import type { ProjectCardProps } from '../utils/types'
 
-    const { title, description, link, githubLink, stack, icon} = Astro.props
+const { title, description, link, githubLink, stack, icon} = Astro.props as ProjectCardProps
     
 ---
 

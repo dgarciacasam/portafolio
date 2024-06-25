@@ -1,11 +1,7 @@
 ---
-interface Props{
-    date: string
-    title: string
-    description: string
-}
+import type { ExperienceCardProps } from '../utils/types'
 
-const { date, title, description } = Astro.props
+const { date, title, description } = Astro.props as ExperienceCardProps
 ---
     <div class="absolute w-3 h-3 rounded-full mt-1.5 -start-1.5 border border-white/30 bg-white/80"></div>
     <time class="mb-1 text-sm font-normal leading-none text-white/60">{date}</time>
