@@ -1,34 +1,28 @@
 ---
 import PostCard from './PostCard.astro'
 
-const POSTS = [
-    {
-        title: "Rocket",
-        description: "Una aplicación de gestión de proyectos y tareas",
-        link: "https://approcket.vercel.app/",
-        tag: "Tutorial",
-        date: "7 de mayo de 2024"
-        
-        
-    },{
-        title: "Rocket",
-        description: "Una aplicación de gestión de proyectos y tareas",
-        link: "https://approcket.vercel.app/",
-        tag: "Tutorial",
-        date: "7 de mayo de 2024"
-    }
-]
+
+let posts: any[] = []
+try {
+  posts = await Astro.glob('../pages/post/*.md')
+} catch (error) {
+  console.log('No se encontraron posts')
+}
+
+
 ---
 
 <section class="mt-10">
     <h2 class="text-xl font-bold">POSTS</h2>
     <div class="grid grid-cols-1 mt-2 space-y-4">
-        <h3 class="text-white/50 text-lg">Aún no hay ningún post...</h3>
-       <!-- {
-        POSTS.map(post => (
+        
+       {
+        (posts.length !== 0)?
+        posts.map(post => (
             <PostCard {...post}/> 
-        ))
-       } -->
+        )):
+        <h3 class="text-white/50 text-lg">Aún no hay ningún post...</h3>
+       }
     </div>
     
 </section>
