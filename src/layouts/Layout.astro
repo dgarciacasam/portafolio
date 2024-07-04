@@ -7,6 +7,8 @@ interface Props {
 
 const { title } = Astro.props;
 
+//Con esto podemos saber si nos encontramos en el índice de la aplicación
+const index = (Astro.url.pathname === '/')? true : false;
 ---
 
 <!doctype html>
@@ -21,7 +23,7 @@ const { title } = Astro.props;
 	</head>
 	<body class="min-h-screen flex flex-col pt-4 py-4 md:py-6 px-8 md:px-48 lg:px-72 xl:px-[30%]">
 		<nav class="flex justify-between py-4">
-			<a href="/"><img src="https://avatars.githubusercontent.com/u/75570554?v=4" alt="imagen de perfil" class="rounded-full size-16 hover:scale-125 transition-transform"></a>
+			<a href="/" class={(index)? 'pointer-events-none' : ''}><img src="https://avatars.githubusercontent.com/u/75570554?v=4" alt="imagen de perfil" class="rounded-full size-16 hover:scale-125 transition-transform"></a>
 			
 			<ul class="flex space-x-2 justify-center items-center">
 				<li class="p-2 rounded hover:bg-white/10 hover:transition">
@@ -54,6 +56,7 @@ const { title } = Astro.props;
 	html {
 		font-family: system-ui, sans-serif;
 		background: #1e1e1e;
+		scroll-behavior: smooth;
 	}
 	code {
 		font-family: system-ui
