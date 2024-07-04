@@ -2,7 +2,7 @@ export type PostCardProps = {
     title: string
     description: string
     link:string
-    tag: string
+    tag: string[]
     date: string
 }
 
