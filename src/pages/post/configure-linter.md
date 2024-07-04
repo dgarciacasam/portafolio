@@ -1,8 +1,8 @@
 ---
 layout: '../../layouts/BlogLayout.astro'
-title: Configurar linter para proyectos con javascript y typescript
-description: Como añadir un linter a proyectos con javascript o typescript.
-tag: Tutorial
+title: Configurar linter para proyectos con Vite
+description: Aprende cómo añadir un linter a proyectos Vite con javascript o typescript.
+tag: [Tutorial, Javascript, Typescript, Herramientas, Frontend]
 date: 27 de Junio de 2024
 ---
 
@@ -14,11 +14,11 @@ Un `linter` es una herramienta que analiza el código de un proyecto e identific
 
 Antes de empezar, debemos asegurarnos de tener instalado:
 
-- [Node.js](https://nodejs.org/en/download/).
-- VsCode.
-- Extensión de VsCode ESLint.
-- Extensión de VsCode Prettier.
-- Extensión de VsCode Error Lens.
+- [Node.js](https://nodejs.org/en/download/)
+- VsCode
+- Extensión de VsCode ESLint
+- Extensión de VsCode Prettier
+- Extensión de VsCode Error Lens
 
 ## Instalación del linter en proyecto con Javascript
 
