@@ -4,7 +4,7 @@ import type { PostCardProps } from '../utils/types'
 
 const { url, frontmatter } = Astro.props as {url: string, frontmatter: PostCardProps}
 ---
-<article class="border border-white/30 rounded p-3">
+<article class="border border-white/30 rounded-xl p-3">
     <h3 class="flex space-x-1 text-lg hover:underline hover:decoration-dashed hover:decoration-white/50 hover:underline-offset-4">
         <a href={url} class="font-bold">{frontmatter.title}</a>
     </h3>
