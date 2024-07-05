@@ -2,7 +2,7 @@
 layout: '../../layouts/BlogLayout.astro'
 title: Implementar autenticación en Java (Spring Boot)
 description: Aprende cómo configurar autenticación con Json Web Token en un proyecto Java (Spring Boot)
-tag: [Tutorial, Backend, JWT, Seguridad]
+tag: [Tutorial, Java, Spring Boot, JWT, Seguridad, Backend]
 date: 04 de Julio de 2024
 ---
 
