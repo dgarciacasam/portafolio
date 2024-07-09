@@ -3,19 +3,18 @@ import TechPill from './TechPill.astro'
 import type { PostCardProps } from '../utils/types'
 
 const { url, frontmatter } = Astro.props as {url: string, frontmatter: PostCardProps}
-console.log(frontmatter)
 ---
 <article class="border border-white/30 rounded-xl p-3">
     <h3 class="flex space-x-1 text-lg hover:underline hover:decoration-dashed hover:decoration-white/50 hover:underline-offset-4">
         <a href={url} class="font-bold">{frontmatter.title}</a>
     </h3>
-    <p class="mt-1 text-white/70 text-sm text-pretty">{frontmatter.description}</p>
-    <div class="flex justify-between items-center mt-4">
-        <div class="flex space-x-2">
+    <p class="mt-4 text-white/70 text-sm text-pretty">{frontmatter.description}</p>
+    <div class="flex flex-col lg:flex-row justify-between items-center mt-4 gap-4">
+        <div class="flex flex-wrap gap-2 self-start">
         {frontmatter.tag.map((tag: string) => (
             <TechPill name={tag} />
         ))}
         </div>
-        <p class="text-white/70 text-sm">{frontmatter.date}</p>
+        <p class="text-white/70 text-sm whitespace-nowrap mt-2 lg:mt-0 max-h-5 self-center lg:self-end">{frontmatter.date}</p>
     </div>
 </article>

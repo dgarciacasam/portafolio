@@ -20,12 +20,12 @@ const filteredHeadings = headings.filter((heading:headings) => heading.depth ===
             <h1 class="text-3xl font-bold uppercase">{frontmatter.title}</h1>
             <p class="text-lg text-white/70 mt-2">{frontmatter.description}</p>
             <div class="flex justify-between py-4 mt-4 border-b border-white/70">
-                <div class="flex space-x-1">
+                <div class="flex flex-wrap gap-1">
                 {frontmatter.tag.map((tag:string)=>(
                     <TechPill name={tag} />
                 ))}
                 </div>
-                <p class="text-md text-white/70">{frontmatter.date}</p>
+                <p class="text-md text-white/70 whitespace-nowrap self-end">{frontmatter.date}</p>
             </div>
             <div class="py-4  border-b border-white/70">
                 <h2 class="text-lg text-white/80 font-bold">Índice:</h2>
