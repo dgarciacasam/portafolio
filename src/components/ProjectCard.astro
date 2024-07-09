@@ -8,7 +8,7 @@ const { title, description, link, githubLink, stack, icon} = Astro.props as Proj
     
 ---
 
-<article class="flex flex-col justify-between border gap-2 border-white/30 rounded-xl p-4 ">
+<article class="flex flex-col flex-wrap justify-between border gap-2 border-white/30 rounded-xl p-4 ">
     <div class="flex justify-between items-center">
     <h3 class={(link !== "") ? 'flex space-x-1 hover:underline hover:decoration-dashed hover:decoration-white/50 hover:underline-offset-4' : 'flex space-x-1' }>   
         { icon === "RocketIcon" && <RocketIcon/> }
