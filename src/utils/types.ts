@@ -20,3 +20,9 @@ export type ExperienceCardProps = {
     title: string
     description: string
 }
+
+export type headings = {
+    depth: number
+    slug: string
+    text: string
+}

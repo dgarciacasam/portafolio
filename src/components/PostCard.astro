@@ -1,6 +1,7 @@
 ---
 import TechPill from './TechPill.astro'
 import type { PostCardProps } from '../utils/types'
+import { formatDate } from '../utils/utils'
 
 const { url, frontmatter } = Astro.props as {url: string, frontmatter: PostCardProps}
 ---
@@ -15,6 +16,6 @@ const { url, frontmatter } = Astro.props as {url: string, frontmatter: PostCardP
             <TechPill name={tag} />
         ))}
         </div>
-        <p class="text-white/70 text-sm whitespace-nowrap mt-2 lg:mt-0 max-h-5 self-center lg:self-end">{frontmatter.date}</p>
+        <p class="text-white/70 text-sm whitespace-nowrap mt-2 lg:mt-0 max-h-5 self-center lg:self-end">{formatDate(frontmatter.date)}</p>
     </div>
 </article>

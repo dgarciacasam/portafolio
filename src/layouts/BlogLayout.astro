@@ -1,14 +1,9 @@
 ---
-
 import Prose from '../components/Prose.astro'
 import TechPill from '../components/TechPill.astro'
 import Layout from './Layout.astro'
-
-interface headings{
-    depth: number
-    slug: string
-    text: string
-}
+import type { headings } from '../utils/types'
+import { formatDate } from '../utils/utils'
 
 const { frontmatter, headings } = Astro.props
 const filteredHeadings = headings.filter((heading:headings) => heading.depth === 2)
@@ -25,7 +20,7 @@ const filteredHeadings = headings.filter((heading:headings) => heading.depth ===
                     <TechPill name={tag} />
                 ))}
                 </div>
-                <p class="text-md text-white/70 whitespace-nowrap self-end">{frontmatter.date}</p>
+                <p class="text-md text-white/70 whitespace-nowrap self-end">{formatDate(frontmatter.date)}</p>
             </div>
             <div class="py-4  border-b border-white/70">
                 <h2 class="text-lg text-white/80 font-bold">Índice:</h2>

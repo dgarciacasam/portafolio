@@ -1,7 +1,6 @@
 ---
 import PostCard from './PostCard.astro'
 
-
 let posts: any[] = []
 try {
   posts = await Astro.glob('../pages/post/*.md')
@@ -9,7 +8,8 @@ try {
   console.log('No se encontraron posts')
 }
 
-
+//Ordenamos los posts por fecha de creación
+posts.sort((a, b) => new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime());
 ---
 
 <section class="mt-10">

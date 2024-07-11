@@ -3,7 +3,7 @@ layout: '../../layouts/BlogLayout.astro'
 title: Configurar linter para proyectos con Vite
 description: Aprende cómo añadir un linter a proyectos Vite con javascript o typescript.
 tag: [Tutorial, Javascript, Typescript, Herramientas, Frontend]
-date: 27 de Junio de 2024
+date: 2024-06-27
 ---
 
 ## Introducción
