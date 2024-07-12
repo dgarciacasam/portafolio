@@ -3,7 +3,7 @@ layout: '../../layouts/BlogLayout.astro'
 title: Configurar entorno de desarrollo en Windows con WSL
 description: Aprende a configurar un entorno de desarrollo aislado para crear aplicaciones fullstack con MySQL, Java y JavaScript
 tag: [Tutorial, Herramientas, Backend, Frontend, MySQL,  Java, Javascript]
-date: 2024-07-11
+date: 2024-07-12
 ---
 
 ## Introducción
