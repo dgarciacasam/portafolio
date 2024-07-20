@@ -66,6 +66,12 @@ Activamos la edición enlazada de etiquetas HTML y el zoom al presionar `Control
 }
 ```
 
+#### Creación de perfiles
+
+Una de las opciones que Visual Studio Code nos facilita y que poca gente utiliza es la creación de perfiles. Estos perfiles son totalmente configurables independientemente de los demás por lo que podrán tener su propio tema, extensiones aisladas del resto de perfiles o incluso configuraciones del editor exclusivas para cada perfil.
+
+Para crear un perfil solo tendremos que hacer clic en `Archivo > Preferencias > Perfil > Crear nuevo perfil`. En mi caso, tengo creados un perfil frontend y uno backend cada uno adaptado al entorno en el que trabajaré y sobre los cuales se aplicarán las configuraciones globales que hemos visto anteriormente.
+
 #### Extensiones que utilizo en los dos perfiles:
 
 - Fluent Icons
