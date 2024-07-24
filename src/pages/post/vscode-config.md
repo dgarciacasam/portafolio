@@ -14,7 +14,7 @@ En lo personal, mi editor de código preferido es Visual Studio Code. Desde mi p
 
 En este post, compartiré mi configuración de Visual Studio Code, incluyendo cómo tengo separado el entorno por perfiles para desarrollo frontend y backend, mis temas preferidos y algunos consejos para mejorar tu experiencia de desarrollo y optimizar tu flujo de trabajo, sacando el máximo partido a esta herramienta.
 
-![alt text](image-8.png)
+![alt text](images/image-8.png)
 
 ## Configuración general
 
@@ -82,11 +82,11 @@ Cuando se trata de desarrollar interfaces de usuario, al menos en mi caso, lo as
 
 Además, siendo la parte del desarrollo de software que se enfoca en lo visual, prefiero un tema de colores vivos y luminosos, siempre con un fondo oscuro. Por eso, mi tema preferido para el desarrollo frontend es Houston, el tema oficial de [Astro](https://astro.build/). Este tema ofrece un fondo oscuro con colores vivos y bien diferenciados en el texto, además de un pequeño amigo que nos acompañará durante nuestras horas de programación.
 
-![alt text](image-12.png)
+![alt text](images/image-12.png)
 
 Como mencioné antes, estas son preferencias personales y así es como diferencio el entorno frontend del backend. En tu caso, puede ser diferente.
 
-![alt text](image-9.png)
+![alt text](images/image-9.png)
 
 #### Extensiones que utilizo para desarrollar en JavaScript:
 
@@ -101,7 +101,7 @@ Como mencioné antes, estas son preferencias personales y así es como diferenci
 
 En cuanto al backend, me gusta tener un editor algo más plano y con otro tema para diferenciarlo del frontend. Al igual que con el otro perfil, el fondo tiene que ser oscuro. En cuanto al tema de iconos y carpetas, en este caso he elegido uno más plano ya que los tipos de archivos no varían tanto.
 
-![alt text](image-11.png)
+![alt text](images/image-11.png)
 
 #### Extensiones que utilizo para desarrollar en Java:
 

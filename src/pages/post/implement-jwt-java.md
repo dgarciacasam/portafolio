@@ -40,6 +40,7 @@ CREATE TABLE `roles` (
 ```
 
 ### Tabla de relación:
+
 Esta tabla se crea a consecuencia de la relación muchos a muchos entre usuarios y roles.
 
 ```sql
@@ -52,7 +53,7 @@ CREATE TABLE `user_roles` (
   KEY `FK_roleID_idx` (`role_id`),
   CONSTRAINT `FK_roleID` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE,
   CONSTRAINT `FK_userID` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
-) 
+)
 ```
 
 ## Dependencias
@@ -109,9 +110,10 @@ En este caso para implementar el sistema de autenticación con Json Web Token va
 ## Código de la aplicación
 
 - ### Modelos
-El modelo es una clase que representa entidades del dominio de la aplicación. Estas clases contienen atributos que corresponden a las propiedades de las entidades y pueden incluir lógica de negocio básica como validaciones.
+  El modelo es una clase que representa entidades del dominio de la aplicación. Estas clases contienen atributos que corresponden a las propiedades de las entidades y pueden incluir lógica de negocio básica como validaciones.
 
 #### UserModel.java
+
 ```bash
 @Data
 @Entity
@@ -131,6 +133,7 @@ public class UserModel {
 ```
 
 #### RoleModel.java
+
 ```bash
 @Data
 @Entity
@@ -144,6 +147,7 @@ public class RoleModel {
 ```
 
 #### RegisterRequestModel.java
+
 ```bash
 @Data
 public class RegisterRequestModel {
@@ -153,11 +157,13 @@ public class RegisterRequestModel {
 ```
 
 #### LoginRequestModel.java
+
 ```bash
 public class LoginRequestModel extends RegisterRequestModel {}
 ```
 
 #### AuthResponseModel.java
+
 ```bash
 @Data
 public class AuthResponseModel {
@@ -171,9 +177,10 @@ public class AuthResponseModel {
 ```
 
 - ### Repositorios
-El repositorio se encarga de la persistencia de los datos. Es la capa que maneja las operaciones de acceso a la base de datos. En nuestro caso, utilizaremos Spring Data JPA, que proporciona interfaces para interactuar con la base de datos.
+  El repositorio se encarga de la persistencia de los datos. Es la capa que maneja las operaciones de acceso a la base de datos. En nuestro caso, utilizaremos Spring Data JPA, que proporciona interfaces para interactuar con la base de datos.
 
 #### UserRepository.java
+
 ```java
 public interface UserRepository extends JpaRepository<UserModel, Integer> {
     Optional<UserModel> findByUsername(String username);
@@ -182,17 +189,20 @@ public interface UserRepository extends JpaRepository<UserModel, Integer> {
 ```
 
 #### RoleRepository.java
+
 ```java
 public interface RoleRepository extends JpaRepository<RoleModel, Integer>{
     Optional<RoleModel> findByName(String name);
 }
 ```
+
 ####
 
 - ### Servicios
-Un servicio contiene la lógica de negocio de la aplicación. Es una capa intermedia entre el controlador y el repositorio que realiza operaciones más complejas utilizando los métodos del repositorio. Los servicios permiten encapsular la lógica de negocio y reutilizarla en diferentes partes de la aplicación.
+  Un servicio contiene la lógica de negocio de la aplicación. Es una capa intermedia entre el controlador y el repositorio que realiza operaciones más complejas utilizando los métodos del repositorio. Los servicios permiten encapsular la lógica de negocio y reutilizarla en diferentes partes de la aplicación.
 
 #### AuthService.java
+
 ```java
 @Service
 public class AuthService implements UserDetailsService{
@@ -212,6 +222,7 @@ public class AuthService implements UserDetailsService{
 ```
 
 #### UserService.java
+
 ```java
 @Service
 public class UserService{
@@ -225,17 +236,17 @@ public class UserService{
 ```
 
 - ### Controladores
-El controlador maneja las solicitudes HTTP, procesa la entrada del usuario, y devuelve respuestas HTTP. Es la capa que interactúa con el cliente (por ejemplo, un navegador web) y utiliza los servicios para realizar operaciones y obtener datos.
-
+  El controlador maneja las solicitudes HTTP, procesa la entrada del usuario, y devuelve respuestas HTTP. Es la capa que interactúa con el cliente (por ejemplo, un navegador web) y utiliza los servicios para realizar operaciones y obtener datos.
 
 #### AuthController.java
+
 ```java
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
     @Autowired
     private AuthenticationManager authenticationManager;
-    
+
     @Autowired
     private UserRepository userRepository;
 
@@ -253,7 +264,7 @@ public class AuthController {
         //Buscamos si el usuario existe y si la contraseña es correcta
         Authentication authentication = authenticationManager.authenticate(
             new UsernamePasswordAuthenticationToken(
-                loginRequest.getUsername(), 
+                loginRequest.getUsername(),
                 loginRequest.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
@@ -286,6 +297,7 @@ public class AuthController {
 ```
 
 #### UserController.java
+
 ```java
 @RestController
 @RequestMapping("/api/users")
@@ -304,11 +316,12 @@ public class UserController {
 - ### Configuración de seguridad
 
 #### SecurityConfig.java
+
 ```java
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
-    
+
     @Autowired
     private AuthService authService;
 
@@ -343,6 +356,7 @@ public class SecurityConfig {
 ```
 
 #### JWTGenerator.java
+
 ```java
 @Component
 public class JWTGenerator {
@@ -373,7 +387,7 @@ public class JWTGenerator {
 
         return claims.getSubject();
       }
-    
+
       public boolean validateToken(String token) {
         try {
           Jwts.parser()
@@ -400,7 +414,7 @@ public class JWTAuthenticationFilter extends OncePerRequestFilter {
 
     @Autowired
     private JWTGenerator jwtGenerator;
-    
+
     @Autowired
     private AuthService authService;
 
@@ -415,8 +429,8 @@ public class JWTAuthenticationFilter extends OncePerRequestFilter {
 
         UserDetails userDetails = authService.loadUserByUsername(username);
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
-            userDetails.getUsername(), 
-            null, 
+            userDetails.getUsername(),
+            null,
             userDetails.getAuthorities());
             authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
             SecurityContextHolder.getContext().setAuthentication(authenticationToken);
@@ -431,7 +445,6 @@ public class JWTAuthenticationFilter extends OncePerRequestFilter {
         }
         return null;
     }
-    
+
 }
 ```
-

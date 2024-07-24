@@ -64,7 +64,7 @@ How would you like to use ESLint? · style
 
 Con esto en principio ya tendríamos el linter configurado.
 
-![alt text](image.png)
+![alt text](images/image.png)
 
 Añadiremos una regla al linter para que no nos aparezcan erorres de este tipo.
 
@@ -133,7 +133,7 @@ npx eslint --init
 
 Una vez que tengamos eslint configurado. Y al menos en mi caso, aparecerá este error al abrir el archivo App.tsx:
 
-![alt text](image-1.png)
+![alt text](images/image-1.png)
 
 Para resolver este error tendremos que añadir en el archivo eslintrc.json la siguiente configuración:
 
@@ -145,7 +145,7 @@ Para resolver este error tendremos que añadir en el archivo eslintrc.json la si
 
 Ahora ya tendremos el linter correctamente configurado:
 
-![alt text](image-2.png)
+![alt text](images/image-2.png)
 
 Añadiremos algunas reglas al archivo eslintjrc.json:
 
