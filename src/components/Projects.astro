@@ -1,0 +1,17 @@
+---
+import { PROJECTS } from '../data/projects'
+import ProjectCard from './ProjectCard.astro'
+---
+
+
+<section class="mt-10">
+    <h2 class="text-xl font-bold">PROYECTOS</h2>
+    <div class="grid xl:grid-cols-2 gap-4 mt-2">
+        {
+            PROJECTS.map(project => (
+                <ProjectCard {...project} />
+            ))
+        }
+    </div>
+    
+</section>

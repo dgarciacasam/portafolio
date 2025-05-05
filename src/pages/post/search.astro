@@ -1,0 +1,12 @@
+---
+import Posts from "../../components/Posts.astro"
+import Layout from "../../layouts/Layout.astro"
+import PagefindSearch from "astro-pagefind/components/Search";
+---
+
+<Layout title="Daniel García - Buscador de posts">
+    <main>
+        <PagefindSearch id="search" className="mt-4" uiOptions={{ showImages: false }} />
+        <Posts />
+    </main>
+</Layout>

@@ -1,0 +1,17 @@
+---
+import Experience from '../components/Experience.astro';
+import Posts from '../components/Posts.astro';
+import Projects from '../components/Projects.astro';
+import Layout from '../layouts/Layout.astro';
+
+---
+
+<Layout title="Daniel García - Desarrollador fullstack">
+	<main class="flex-1 pt-4 text-white">
+		<p class="leading-loose ">Soy <strong class="text-lg text-">Dani</strong>, desarrollador web fullstack.
+			Especializado en Java, MySQL y React.</p>
+		<Projects />	
+		<Experience />
+		<Posts />
+	</main>
+</Layout>

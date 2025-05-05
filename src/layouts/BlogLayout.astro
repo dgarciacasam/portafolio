@@ -1,0 +1,45 @@
+---
+import Prose from '../components/Prose.astro'
+import TechPill from '../components/TechPill.astro'
+import Layout from './Layout.astro'
+import type { headings } from '../utils/types'
+import { formatDate } from '../utils/utils'
+
+import "../styles/global.css";
+
+const { frontmatter, headings } = Astro.props
+const filteredHeadings = headings.filter((heading:headings) => heading.depth === 2)
+---
+
+<Layout title={frontmatter.title + ' - Daniel García'}>
+    <main class="flex-1 pt-4 text-white" data-pagefind-body>
+        <div>
+            <h1 class="text-3xl font-bold uppercase">{frontmatter.title}</h1>
+            <p class="text-lg text-white/70 mt-2">{frontmatter.description}</p>
+            <div class="flex justify-between gap-4 py-4 mt-4 border-b border-white/70">
+                <div class="flex flex-wrap gap-1">
+                {frontmatter.tag.map((tag:string)=>(
+                    <TechPill name={tag} />
+                ))}
+                </div>
+                <p class="text-md text-white/70 whitespace-nowrap self-end">{formatDate(frontmatter.date)}</p>
+            </div>
+            <div class="py-4  border-b border-white/70">
+                <h2 class="text-lg text-white/80 font-bold">Índice:</h2>
+                <ol class="list-decimal pl-4 pt-4 text-lg font-semibold space-y-2">
+                {
+                    filteredHeadings.map((heading: headings) => (
+                     <li class="hover:text-white/80 hover:underline hover:decoration-dashed hover:decoration-white/50 hover:underline-offset-4"><a href={'#' + heading.slug}>{heading.text}</a></li>   
+                    ))
+                }
+                </ol>
+            </div>
+            <div class="pt-8">
+                <Prose>
+                    <slot />
+                </Prose>
+            </div>
+            
+        </div>
+    </main>
+</Layout>

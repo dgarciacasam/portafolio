@@ -1,0 +1,58 @@
+---
+import PostCard from './PostCard.astro'
+
+const postImports = import.meta.glob('../pages/post/*.md');
+
+const allPosts = await Promise.all(
+  Object.entries(postImports).map(async ([path, resolver]) => {
+    const post = await resolver();
+    return {
+      ...post,
+      slug: path
+        .split('/')
+        .pop()
+        ?.replace('.md', '')
+    };
+  })
+);
+
+allPosts.sort(
+  (a, b) => new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime()
+);
+
+const mainPage: boolean = Astro.url.pathname === '/';
+const posts = mainPage ? allPosts.slice(0, 3) : allPosts;
+---
+
+<section class="mt-10">
+
+    <div class="flex justify-between">
+      {(mainPage) ? 
+      <h2 class="text-xl font-bold">POSTS</h2>
+      
+      <a href="/post/search" class="group flex text-sm items-center text-white/60 hover:text-white transition space-x-1">
+        <span>Ver más</span>
+        <svg width="14"  height="14"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-right group-hover:translate-x-[2px] transition"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l14 0" /><path d="M13 18l6 -6" /><path d="M13 6l6 6" /></svg>
+      </a>
+      :
+        <h2 class="flex items-center space-x-2 text-sm text-white/60">
+          <svg  xmlns="http://www.w3.org/2000/svg"  width="18"  height="18"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-sparkles"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M16 18a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2zm0 -12a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2zm-7 12a6 6 0 0 1 6 -6a6 6 0 0 1 -6 -6a6 6 0 0 1 -6 6a6 6 0 0 1 6 6z" /></svg>
+          <span>{allPosts.length} entradas</span>
+        </h2>
+
+      }
+      
+    </div>
+    
+    <div class="grid grid-cols-1 mt-2 space-y-4">
+        
+       {
+        (posts.length !== 0)?
+        posts.map(post => (
+            <PostCard {...post}/> 
+        )):
+        <h3 class="text-white/50 text-lg">Aún no hay ningún post...</h3>
+       }
+    </div>
+    
+</section>
