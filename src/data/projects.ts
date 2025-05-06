@@ -2,7 +2,7 @@ export const PROJECTS = [
   {
     title: 'Rocket',
     description: 'Una aplicación para la gestión de proyectos y tareas.',
-    link: 'https://approcket.vercel.app/',
+    link: '',
     githubLink: 'https://github.com/dgarciacasam/rocket',
     stack: ['React', 'Typescript', 'Tailwind'],
     icon: 'RocketIcon',

@@ -1,15 +1,13 @@
 ---
 import { EXPERIENCE } from '../data/experience'
 import ExperienceCard from './ExperienceCard.astro'
-
-
 ---
 
 <section class="mt-10">
     <h2 class="text-xl font-bold">EXPERIENCIA</h2>
 <ol class="relative border-s border-gray-200 dark:border-gray-700 mt-2">                  
     {
-        EXPERIENCE.map(experience => (
+        EXPERIENCE.reverse().map(experience => (
             <li class="mb-10 ms-4">
                 <ExperienceCard {...experience}/>
             </li>

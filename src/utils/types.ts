@@ -8,17 +8,20 @@ export type PostCardProps = {
 
 export type ProjectCardProps = {
     title: string
-        description: string
-        link: string
-        githubLink: string
-        stack: string[]
-        icon: string
+    description: string
+    link: string
+    githubLink: string
+    stack: string[]
+    icon: string
 }
 
 export type ExperienceCardProps = {
     date: string
-    title: string
+    projectName: string
     description: string
+    name: string
+    link: string
+    stack: string[]
 }
 
 export type headings = {
